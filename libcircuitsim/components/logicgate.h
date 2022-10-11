@@ -2,6 +2,7 @@
 #define CIRSIMTEST_LOGICGATE_H
 
 #if CIRCUITSIM_PRECISION <= 1
+#include "mosfet.h"
 void or(bool a, bool b, bool* output) {
     nmos(&a);
     nmos(&b);
@@ -54,6 +55,7 @@ void xnor(bool a, bool b, bool* output) {
     *output = (a&b) | (not_a & not_b);
 }
 #else
+#include "stdbool.h"
 void or(bool a, bool b, bool* output) {
     *output = a | b;
 }
